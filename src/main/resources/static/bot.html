@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="referrer" content="no-referrer">
+    <title>Chat Bot with Facebook</title>
+   <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="https://console.api.ai/api-client/assets/img/logo-short.png">
+    <meta property="og:title" content="OrderAgent">
+    <meta property="og:description" content="chat box for order asset"><meta property="og:locale" content="en"><meta property="og:image" content=""><meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>@-moz-keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}@-webkit-keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}@-ms-keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}@keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}#preloader{background:#fff;position:fixed;top:0;left:0;height:100%;width:100%;z-index:999999;opacity:1;-webkit-transition:opacity .5s ease;transition:opacity .5s ease}#preloader .logo{display:block;width:109px;height:39px;background-repeat:no-repeat;background-image:url(https://console.api.ai/api-client/assets/img/logo@2x-black.png);background-size:contain;position:absolute;top:50%;left:50%;margin:-20px 0 0 -55px;-moz-transition:all 1s ease-in-out;-webkit-transition:all 1s ease-in-out;-o-transition:all 1s ease-in-out;-ms-transition:all 1s ease-in-out;transition:all 1s ease-in-out;-moz-animation:blink normal 2s infinite ease-in-out;-webkit-animation:blink normal 2s infinite ease-in-out;-ms-animation:blink normal 2s infinite ease-in-out;animation:blink normal 2s infinite ease-in-out}noscript h1{padding:20px}
+    </style><!--[if lte IE 7]>
+
+    <script src="https://console.api.ai/api-client/js/agentDemoApp/promise.min.js"></script>
+    <![endif]--></head>
+<body>
+<div id="preloader">
+    <noscript>
+        <h1>This application does'not work without javascript</h1>
+    </noscript>
+    <div class="logo"></div>
+</div><div class="b-agent-demo"><div class="b-agent-demo_header">
+    <div class="b-agent-demo_header-icon">
+        <div class="b-agent-demo_header-icon-align-helper">
+            <img id="agent-avatar" src="https://console.api.ai/api-client/assets/img/logo-short.png" srcset="https://console.api.ai/api-client/assets/img/logo-short.png 2x, https://console.api.ai/api-client/assets/img/logo-short.png"></div>
+    </div><div class="b-agent-demo_header-wrapper">
+      <div class="b-agent-demo_header-agent-name">OrderAgent</div>
+    <div class="b-agent-demo_header-description">chat box for order asset</div>
+</div></div>
+    <div class="b-agent-demo_result" id="resultWrapper"><table class="b-agent-demo_result-table">
+        <tr><td id="result"></td>
+        </tr></table></div><div class="clearfix"></div>
+    <div class="b-agent-demo_input"><form id="agentDemoForm">
+        <input type="text" name="q" id="query" placeholder="Ask something...">
+        <div class="b-agent-demo_input-microphone icon-mic" id="mic"></div></form></div></div><noscript id="deferred-styles">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'><link href='https://console.api.ai/api-client/js/agentDemoApp/assets/font.min.1e74af42.css' rel='stylesheet' type='text/css'></noscript>
+<script>
+    AGENT_LANGUAGE="en",AGENT_AVATAR_ID="",SERVICE_BASE_URL="https://console.api.ai/api-client/";
+    var loadDeferredStyles=function(){var e=document.getElementById("deferred-styles"),
+        n=document.createElement("div");n.innerHTML=e.textContent,document.body.appendChild(n),e.parentElement.removeChild(e)},raf=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;raf?raf(function(){window.setTimeout(loadDeferredStyles,0)}):window.addEventListener("load",loadDeferredStyles)
+</script>
+<script defer src="https://console.api.ai/api-client/js/bundles/agentDemo.bundle.min.38e9bcd6.js"></script>
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-50971730-1","auto"),ga("send","pageview")
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+<script>
+    $(document).ready(function(){
+
+
+        $("body").on('DOMSubtreeModified', "#result div", function() {
+
+            var divElement=$("#result div").last();
+            if(divElement !=null && divElement != undefined && divElement.hasClass("server-response")){
+                var speechText=divElement.text();
+                var msg = new SpeechSynthesisUtterance(speechText);
+                window.speechSynthesis.speak(msg);
+            }
+
+        });
+
+    });
+
+
+</script>
+</html>
